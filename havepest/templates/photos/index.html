@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<!-- Photos Wrapper -->
+		<div id="photos-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<!-- Photos -->
+						<div id="photos" class="box" style="background: transparent;">
+							<div>
+								<div class="row">
+									<div class="12u">
+										<h2 class="title">Photos</h2>
+  
+										{% for a in info.albums %}
+										<p class="album">
+										<a href="/photos/{{ a.id }}"><img src="{{ a.thumb }}" alt="" /></a><br />
+										<a href="/photos/{{ a.id }}">{{ a.title }}</a>
+										</p>
+										{% endfor %}
+
+										<style type="text/css">
+										p.album {
+											width: 200px;
+											height: 175px;
+											float: left;
+											text-align: center;
+											font-weight: bold;
+										}
+
+										p.album a {
+											text-decoration: none;
+										}
+
+										p.album img {
+											border: solid 1px #000;
+										}
+										
+										#photos {
+											padding-bottom: 4em;
+										}
+										</style>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock content %}
+
+{% block sidebar %}{% endblock sidebar %}

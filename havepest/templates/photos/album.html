@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <!-- Photos Wrapper -->
+		<div id="photos-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<!-- Photos -->
+						<div id="photos" class="box" style="background: transparent;">
+							<div>
+								<div class="row">
+									<div class="12u">
+										<h2 class="title">{{ info.album.title }}</h2>
+          
+										{% for p in info.photos %}
+										<p class="photo"><a href="{{ p.img }}"{% if p.caption %} data-title="{{ p.caption }}"{% endif %} data-lightbox="album"><img src="{{ p.thumb }}" alt="" /></a></p>
+										{% endfor %}
+
+										<style type="text/css">
+										p.photo {
+											width: 75px;
+											height: 75px;
+											float: left;
+											text-align: center;
+										}
+
+										p.photo img {
+											border: solid 1px #000;
+										}
+										</style>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock content %}
+
+{% block sidebar %}{% endblock sidebar %}

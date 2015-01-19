@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+		
+{% block content %}
+		<!-- Banner Wrapper -->
+			<div id="banner-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Banner -->
+								<div id="banner" class="box">
+
+									<div>
+										<div class="row">
+											<div class="7u">
+												<h2>{{ info.phone_number.content }}</h2>
+											</div>
+											<div class="5u">
+												{% autoescape off %}{{ info.content.content }}{% endautoescape %}
+											</div>
+										</div>
+									</div>
+								
+								</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock content %}
+
+{% block footer %}
+					<div class="row" style="padding: 0 0 3em 0; box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.05);">
+						<div class="8u">
+						
+							<!-- Links -->
+								<section class="widget-links" id="appt">
+									<h2>Schedule an Appointment</h2>
+									<p id="contactMessage" style="color: #0F0"></p>
+									<form id="contactForm" method="post" action="#">{% csrf_token %}
+									<input type="text" class="text" name="name" placeholder="Name*" required />
+									<input type="text" class="text" name="phone" placeholder="Phone Number*" required />
+									<input type="text" class="text" name="address" placeholder="Street Address" />
+									<input type="text" class="text" name="zip" placeholder="Zip Code" />
+									<input type="text" class="text" name="email" placeholder="Email Address" />
+									<select name="preferred">
+										<option value="None Specified">Preferred Day/Time</option>
+										<option value="Monday AM">Monday AM</option>
+										<option value="Monday AM">Monday PM</option>
+										<option value="Monday AM">Tuesday AM</option>
+										<option value="Monday AM">Tuesday PM</option>
+										<option value="Monday AM">Wednesday AM</option>
+										<option value="Monday AM">Wednesday PM</option>
+										<option value="Monday AM">Thursday AM</option>
+										<option value="Monday AM">Thursday PM</option>
+										<option value="Monday AM">Friday AM</option>
+										<option value="Monday AM">Friday PM</option>
+										<option value="Monday AM">Saturday AM</option>
+										<option value="Monday AM">Saturday PM</option>
+									</select>
+									<textarea name="message" placeholder="Message"></textarea>
+									<button id="contactBtn">Send</button>
+									</form>
+								</section>
+						
+						</div>
+						<div class="1u">&nbsp;</div>
+						<div class="3u">
+						
+							<!-- Contact -->
+								<section class="widget-contact last">
+									<h2>Contact Us</h2>
+									<ul>
+										<li><a href="https://www.facebook.com/HPWTrandy" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+									</ul>
+									<p>
+										{% autoescape off %}{{ info.address.content }}{% endautoescape %}
+									</p>
+								</section>
+						
+						</div>
+					</div>
+{% endblock %}
+
+					
